@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sign In</title>
+        {% load static %}
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="{% static 'loginApp/js/register.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/universal.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'loginApp/css/index.css' %}">
+    </head>
+    <body>
+        <div id="header">
+            <h3>FriendBook</h3>
+            <h4><a href="/friends/" class="dlink">Home</a></h4>
+            {% if request.session.userid %}
+            <h4 class="right"><a href="/main/signout" class="dlink">Log Off</a></h4>
+            {% else %}
+            <h4 class="right"><a href="/main/" class="dlink">Sign In</a></h4>
+            {% endif %}
+        </div>
+        <h2>Welcome!</h2>
+        <div id="register">
+            <h3>Register</h3>
+            <form action="/main/register/" method="post">
+                {% csrf_token %}
+                <label for="name">Name: <input type="text" name="name"></label>
+                <label for="alias">Alias: <input type="text" name="alias"></label>
+                <label for="email">Email: <input type="text" name="email"></label>
+                <label for="password">Password: <input type="password" id="pw" name="password"></label>
+                <label for="pwconfirm">Confirm: <input type="password" id="pwc" name="pwconfirm"></label>
+                <h5 id="pwnomatch" class="error" style="display: none">Passwords do not match!</h5>
+                <label for="birthday">Date of Birth: <input type="date" name="birthday"></label>
+                <div id="submit"><input type="submit" id="regbutton" value="Register"></div>
+            </form>
+        </div>
+        <div id="login">
+            <h3> Sign In</h3>
+            <form action="/main/login/" method="post">
+                {% csrf_token %}
+                <label for="email">Email Address: <input type="text" name="email"></label>
+                <label for="password">Password: <input type="password" name="password"></label>
+                <div id="submit"><input type="submit" id="sibutton" value="Sign In"></div>
+            </form>
+        </div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+</html>

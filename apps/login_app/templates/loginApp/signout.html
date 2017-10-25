@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sign In</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/universal.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'loginApp/css/index.css' %}">
+    </head>
+    <body>
+        <div id="header">
+            <h3>FriendBook</h3>
+            <h4><a href="/main/" class="dlink">Home</a></h4>
+            {% if request.session.userid %}
+            <h4 class="right"><a href="/main/signout" class="dlink">Log Off</a></h4>
+            {% else %}
+            <h4 class="right"><a href="/main/" class="dlink">Sign In</a></h4>
+            {% endif %}
+        </div>
+        <h2>You have successfully signed out.</h2>
+        <a href="/main/">Return to the homepage</a>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ user.name }}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/universal.css' %}">
+    </head>
+    <body>
+        <div id="header">
+            <h3>FriendBook</h3>
+            <h4><a href="/main/" class="dlink">Home</a></h4>
+            {% if request.session.userid %}
+            <h4 class="right"><a href="/main/signout" class="dlink">Log Off</a></h4>
+            {% else %}
+            <h4 class="right"><a href="/main/" class="dlink">Sign In</a></h4>
+            {% endif %}
+        </div>
+        <div id="wrapper">
+            <h3>{{ user.alias }}'s Profile</h3>
+            <p>Name: {{ user.name }}</p>
+            <p>Email Address: {{ user.email }}</p>
+        </div>
+    </body>
+</html>

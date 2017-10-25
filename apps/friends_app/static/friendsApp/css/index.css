@@ -1,0 +1,26 @@
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 5px;
+}
+
+tr:nth-child(odd){
+    background: #F5F5F5;
+    background: -webkit-linear-gradient(#F5F5F5, lightgray);
+    background: -o-linear-gradient(#F5F5F5, lightgray);
+    background: -moz-linear-gradient(#F5F5F5, lightgray);
+    background: linear-gradient(#F5F5F5, lightgray);
+}
+tr:nth-child(even){
+    background: lightgray;
+    background: -webkit-linear-gradient(lightgray, #F5F5F5);
+    background: -o-linear-gradient(lightgray, #F5F5F5);
+    background: -moz-linear-gradient(lightgray, #F5F5F5);
+    background: linear-gradient(lightgray, #F5F5F5);    
+}

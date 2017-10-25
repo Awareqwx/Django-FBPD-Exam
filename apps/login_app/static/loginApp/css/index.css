@@ -1,0 +1,24 @@
+#register, #login{
+    display: inline-block;
+    border: 2px solid black;
+    vertical-align: top;
+    padding: 5px;
+    background: #F5F5F5;
+    background: -webkit-linear-gradient(lightgray, #F5F5F5);
+    background: -o-linear-gradient(lightgray, #F5F5F5);
+    background: -moz-linear-gradient(lightgray, #F5F5F5);
+    background: linear-gradient(lightgray, #F5F5F5);
+}
+
+form{
+    text-align: right;
+}
+
+label{
+    display: block;
+    margin: 5px;
+}
+
+#sibutton, #regbutton{
+    margin: 5px;
+}
